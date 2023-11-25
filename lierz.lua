@@ -1,297 +1,720 @@
---By Rufus14
---ears: 391268255
---bamalam: 720451528
---columb: 1202637744
  
---[[music = Instance.new("Sound", game.Players.LocalPlayer.Character.Torso)
-music.Volume = 10
-music.SoundId = "rbxassetid://1202637744"
-music.Looped = true
-music:Play()]]
-mouse = game.Players.LocalPlayer:GetMouse()
-gun = Instance.new("Part", game.Players.LocalPlayer.Character)
-gun:BreakJoints()
-gun.CanCollide = false
-gun.Name = "Ak-47"
-gun.Orientation  = Vector3.new(0,0,0)
-mesh = Instance.new("SpecialMesh", gun)
-mesh.MeshId = "rbxassetid://477006495"
-mesh.TextureId = "rbxassetid://477006525"
-mesh.Scale = Vector3.new(0.04,0.04,0.04)
-weld = Instance.new("Weld", gun)
-weld.Part0 = game.Players.LocalPlayer.Character["Right Arm"]
-weld.Part1 = gun
-weld.C0 = weld.C0 * CFrame.Angles(-1.5,0,0) * CFrame.new(0,0,-2.5)
-local rhandweld = Instance.new("Weld", game.Players.LocalPlayer.Character.Torso)
-rhandweld.Part0 = game.Players.LocalPlayer.Character.Torso
-rhandweld.Part1 = game.Players.LocalPlayer.Character["Right Arm"]
-rhandweld.C0 = CFrame.new(1.5, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
-local lhandweld = Instance.new("Weld", game.Players.LocalPlayer.Character.Torso)
-lhandweld.Part0 = game.Players.LocalPlayer.Character.Torso
-lhandweld.Part1 = game.Players.LocalPlayer.Character["Left Arm"]
-lhandweld.C0 = CFrame.new(-1.5, 0.5, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-shot = Instance.new("Sound", gun)
-shot.Volume = 10
-shot.SoundId = "rbxassetid://285234709"
-pump = Instance.new("Sound", gun)
-pump.Volume = 10
-pump.SoundId = "rbxassetid://255061173"
-pump.PlaybackSpeed = 0.7
---[[function owtheedge()
-    workspace.CurrentCamera.FieldOfView = 70 + music.PlaybackLoudness / 80
-end
-game:GetService("RunService").RenderStepped:connect(owtheedge)]]
-for i = 0,0.7 , 0.01 do
-    weld.C0 = weld.C0:lerp(CFrame.new(-0.342021942, -1.88848877, -0.088739872, 0.978147507, -0.0289359875, -0.205888897, 0.204753578, -0.0378959738, 0.978079677, -0.0361040607, -0.998862624, -0.0311431047),i)
-    rhandweld.C0 = rhandweld.C0:lerp(CFrame.new(0.917564392, 0.399175882, -0.578536987, 0.978147507, 0.204753578, -0.0361040607, -0.0289359875, -0.0378959738, -0.998862624, -0.205888897, 0.978079677, -0.0311431047),i)
-    lhandweld.C0 = lhandweld.C0:lerp(CFrame.new(-0.472423553, 0.409558296, -1.4746933, 0.939692736, -0.342019886, -2.0985492e-06, 0.0238559935, 0.0655499771, -0.997564137, 0.341186911, 0.937403619, 0.0697560608),i)
-    game:GetService("RunService").RenderStepped:wait()
-end
-using = false
-rapid = true
-debounce = false
-ammo = 30
  
-function plai(key)
-    key = key:lower()
-  --[[  if key == "e" then
-        if moosic then
-            runkids.SoundId = "rbxassetid://665751753"
-            runkids.Volume = 8
-            runkids:Play()
-            runkids.Looped = true
-            runkids.TimePosition = 13
-        end
-        if not moosic then
-            runkids:Stop()
-        end
-    end]]
-end
+local PERKY = "Quick Hands" -- CHANGE THIS NIGGA TO ANY PERK
+local ABIL = "Illuminati Knife" -- THIS TOO (TO ANY ABILITY)
  
-mouse.KeyDown:connect(plai)
-function rapid()
-    rapid = true
-end
-mouse.Button1Down:connect(rapid)
-function notrapid()
-    rapid = false
-end
-mouse.Button1Up:connect(notrapid)
+--EQUIP/UNEQUIP KNIFE/GUN A FEW TIMES FOR IT TO WORK
+--iF U GOT ANY PROBLEMS DM ME FAGGOT
  
-function shoot()
-    
-    if not rapid then
-        rapid = true
-    end
-    
-        while rapid and debounce == false do
-        shot:Play()
-    rapid = true    
-debounce = true
-        for i = 1,1 do
-            local missle = Instance.new("Part", workspace)
-            missle:BreakJoints()
-            missle.Name = "bullet"
-            missle.BrickColor = BrickColor.Yellow()
-            missle.CanCollide = false
-            missle.Material = "Neon"
-            missle.Size = Vector3.new(0.1,0.1,0.1)
-            missle.CFrame = gun.CFrame * CFrame.new(0,0,2)
-            missle.Transparency = 0
-            local vel = Instance.new("BodyVelocity", missle)
-            vel.Velocity = mouse.Hit.lookVector * math.random(500,500) + Vector3.new(math.random(-10,10),math.random(-10,10),0)
-            vel.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-            local function hit(part)
-                local hitval = math.random(40,65)
-                local humanoid = part.Parent:findFirstChildOfClass("Humanoid")
-                if humanoid then
-                    if humanoid.Health == math.huge or humanoid.Health >= 600 then
-                        humanoid.Health = 100
-                    end
-                    if humanoid.MaxHealth == math.huge or humanoid.MaxHealth >= 600 then
-                        humanoid.MaxHealth = 100
-                    end
-                    if humanoid.Parent.Name == game.Players.LocalPlayer.Name then
-                        
-                    else
-                        if humanoid.Health < hitval then
-                            humanoid.Health = 1
-                            humanoid.JumpPower = 0
-                            humanoid.PlatformStand = true
-                            humanoid.WalkSpeed = 0
-                            local findlefthip = humanoid.Parent.Torso:findFirstChild("Left Hip")
-                            if findlefthip then
-                                findlefthip:Remove()
-                                local glue = Instance.new("Glue",  humanoid.Parent.Torso)
-                                glue.Part0 = humanoid.Parent.Torso
-                                glue.Part1 = humanoid.Parent["Left Leg"]
-                                glue.Name = "Left leg"
-                                local collider = Instance.new("Part",  humanoid.Parent["Left Leg"])
-                                collider.Position = Vector3.new(0,999,0)
-                                collider.Size = Vector3.new(1.5, 1, 1)
-                                collider.Shape = "Cylinder"
-                                local weld = Instance.new("Weld", collider)
-                                weld.Part0 =  humanoid.Parent["Left Leg"]
-                                weld.Part1 = collider
-                                weld.C0 = CFrame.new(0,-0.2,0) * CFrame.fromEulerAnglesXYZ(0, 0, math.pi/2)
-                                collider.TopSurface = "Smooth"
-                                collider.BottomSurface = "Smooth"
-                                collider.formFactor = "Symmetric"
-                                glue.C0 = CFrame.new(-0.5, -1, 0, -0, -0, -1, 0, 1, 0, 1, 0, 0)
-                                glue.C1 = CFrame.new(-0, 1, 0, -0, -0, -1, 0, 1, 0, 1, 0, 0)
-                                collider.Transparency = 1
-                            end
-                            --
-                            local findrighthip = humanoid.Parent.Torso:findFirstChild("Right Hip")
-                            if findrighthip then
-                                findrighthip:Remove()
-                                local glue = Instance.new("Glue",  humanoid.Parent.Torso)
-                                glue.Part0 = humanoid.Parent.Torso
-                                glue.Part1 = humanoid.Parent["Right Leg"]
-                                glue.Name = "Right leg"
-                                local collider = Instance.new("Part",  humanoid.Parent["Right Leg"])
-                                collider.Position = Vector3.new(0,999,0)
-                                collider.Size = Vector3.new(1.5, 1, 1)
-                                collider.Shape = "Cylinder"
-                                local weld = Instance.new("Weld", collider)
-                                weld.Part0 =  humanoid.Parent["Right Leg"]
-                                weld.Part1 = collider
-                                weld.C0 = CFrame.new(0,-0.2,0) * CFrame.fromEulerAnglesXYZ(0, 0, math.pi/2)
-                                collider.TopSurface = "Smooth"
-                                collider.BottomSurface = "Smooth"
-                                collider.formFactor = "Symmetric"
-                                glue.C0 = CFrame.new(0.5, -1, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
-                                glue.C1 = CFrame.new(0, 1, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
-                                collider.Transparency = 1
-                            end
-                            --
-                            local findrightshoulder = humanoid.Parent.Torso:findFirstChild("Right Shoulder")
-                            if findrightshoulder then
-                                findrightshoulder:Remove()
-                                local glue = Instance.new("Glue",  humanoid.Parent.Torso)
-                                glue.Part0 = humanoid.Parent.Torso
-                                glue.Part1 = humanoid.Parent["Right Arm"]
-                                glue.Name = "Right arm"
-                                local collider = Instance.new("Part",  humanoid.Parent["Right Arm"])
-                                collider.Position = Vector3.new(0,999,0)
-                                collider.Size = Vector3.new(1.5, 1, 1)
-                                collider.Shape = "Cylinder"
-                                local weld = Instance.new("Weld", collider)
-                                weld.Part0 =  humanoid.Parent["Right Arm"]
-                                weld.Part1 = collider
-                                weld.C0 = CFrame.new(0,-0.2,0) * CFrame.fromEulerAnglesXYZ(0, 0, math.pi/2)
-                                collider.TopSurface = "Smooth"
-                                collider.BottomSurface = "Smooth"
-                                collider.formFactor = "Symmetric"
-                                glue.C0 = CFrame.new(1.5, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
-                                glue.C1 = CFrame.new(0, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
-                                collider.Transparency = 1
-                            end
-                            --
-                            local findleftshoulder = humanoid.Parent.Torso:findFirstChild("Left Shoulder")
-                            if findleftshoulder then
-                                findleftshoulder:Remove()
-                                local glue = Instance.new("Glue",  humanoid.Parent.Torso)
-                                glue.Part0 = humanoid.Parent.Torso
-                                glue.Part1 = humanoid.Parent["Left Arm"]
-                                glue.Name = "Left arm"
-                                local collider = Instance.new("Part",  humanoid.Parent["Left Arm"])
-                                collider.Position = Vector3.new(0,999,0)
-                                collider.Size = Vector3.new(1.5, 1, 1)
-                                collider.Shape = "Cylinder"
-                                local weld = Instance.new("Weld", collider)
-                                weld.Part0 =  humanoid.Parent["Left Arm"]
-                                weld.Part1 = collider
-                                weld.C0 = CFrame.new(0,-0.2,0) * CFrame.fromEulerAnglesXYZ(0, 0, math.pi/2)
-                                collider.TopSurface = "Smooth"
-                                collider.BottomSurface = "Smooth"
-                                collider.formFactor = "Symmetric"
-                                glue.C0 = CFrame.new(-1.5, 0.5, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-                                glue.C1 = CFrame.new(0, 0.5, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-                                collider.Transparency = 1
-                            end
-                            local findhead = humanoid.Parent:findFirstChild("Head")
-                            if findhead then
-                                local attachment = Instance.new("Attachment", humanoid.Parent.Head)
-                                attachment.Position = Vector3.new(0, -0.5, 0)
-                                attachment.Name = "lol"
-                                attachment.Visible = false
-                                humanoid.Parent.Torso.NeckAttachment.Visible = false
-                                humanoid.Parent.Torso.NeckAttachment.Position = humanoid.Parent.Torso.NeckAttachment.Position + Vector3.new(0,0,0)
-                                local ball = Instance.new("BallSocketConstraint", humanoid.Parent)
-                                ball.Attachment0 = humanoid.Parent.Torso.NeckAttachment
-                                ball.Attachment1 = attachment
-                                ball.LimitsEnabled = true
-                                ball.TwistLimitsEnabled = true
-                                ball.UpperAngle = 90
-                                ball.Restitution = 0.5
-                                ball.TwistUpperAngle = 90
-                                ball.TwistLowerAngle = -90
-                                local  collidepartofleftleg = Instance.new("Part", humanoid.Parent.Torso)
-                                collidepartofleftleg.Name = "Bone"
-                                collidepartofleftleg.Size = Vector3.new(0.7,0.7,0.7)
-                                collidepartofleftleg.Transparency = 1
-                                collidepartofleftleg:BreakJoints()
-                                local weeld = Instance.new("Weld", collidepartofleftleg)
-                                weeld.Part0 = collidepartofleftleg
-                                weeld.Part1 = humanoid.Parent["Head"]
-                                if humanoid.Parent.Torso:findFirstChild("Neck") then
-                                    humanoid.Parent.Torso.Neck:destroy()
-                                end
-                            end
- 
-                            wait(10)
-                            humanoid.Health = 0
-                    else
-                        humanoid.Health = humanoid.Health - hitval
-                    end
-                    end
-                else
-                    if part.Name == "Shotgun" or "bullet" then
-                        
-                    else
-                        missle:destroy()
-                    end
-                end
-            end
-            missle.Touched:connect(hit)
-        end
-        for i = 0,1 , 0.5 do
-            weld.C0 = weld.C0:lerp(CFrame.new(-0.342021942, -1.88848877, -0.088739872, 0.978147507, -0.0289359875, -0.205888897, 0.204753578, -0.0378959738, 0.978079677, -0.0361040607, -0.998862624, -0.0311431047),i)
-            rhandweld.C0 = rhandweld.C0:lerp(CFrame.new(0.917564392, 0.491810799, -0.168943405, 0.978147507, 0.204753578, -0.0361040607, 0.0289353225, -0.306021929, -0.951584637, -0.205889001, 0.929745436, -0.305259228),i)
-            lhandweld.C0 = lhandweld.C0:lerp(CFrame.new(-0.472423553, 0.748803854, -1.02752113, 0.939693093, -0.342019022, -2.66768012e-07, -0.0711100101, -0.195373133, -0.978147566, 0.334545016, 0.919158578, -0.207911715),i)
-            game:GetService("RunService").RenderStepped:wait()
-        end
-        --[[for i = 0,1 , 0.05 do
-            weld.C0 = weld.C0:lerp(CFrame.new(-0.342021942, -1.88848877, -0.088739872, 0.978147507, -0.0289359875, -0.205888897, 0.204753578, -0.0378959738, 0.978079677, -0.0361040607, -0.998862624, -0.0311431047),i)
-            rhandweld.C0 = rhandweld.C0:lerp(CFrame.new(0.917564392, 0.491810799, -0.168943405, 0.978147507, 0.204753578, -0.0361040607, 0.0289353225, -0.306021929, -0.951584637, -0.205889001, 0.929745436, -0.305259228),i)
-            lhandweld.C0 = lhandweld.C0:lerp(CFrame.new(-0.201648712, 0.903478384, -1.75520706, 0.939693093, -0.342019022, -2.66768012e-07, -0.0711100101, -0.195373133, -0.978147566, 0.334545016, 0.919158578, -0.207911715),i)
-            game:GetService("RunService").RenderStepped:wait()
-        end
-        pump:Play()
-        for i = 0,1 , 0.05 do
-            weld.C0 = weld.C0:lerp(CFrame.new(-0.342021942, -1.88848877, -0.088739872, 0.978147507, -0.0289359875, -0.205888897, 0.204753578, -0.0378959738, 0.978079677, -0.0361040607, -0.998862624, -0.0311431047),i)
-            rhandweld.C0 = rhandweld.C0:lerp(CFrame.new(0.917564392, 0.491810799, -0.168943405, 0.978147507, 0.204753578, -0.0361040607, 0.0289353225, -0.306021929, -0.951584637, -0.205889001, 0.929745436, -0.305259228),i)
-            lhandweld.C0 = lhandweld.C0:lerp(CFrame.new(-0.44393158, 0.765078783, -1.10408783, 0.939693093, -0.342019022, -2.66768012e-07, -0.0711100101, -0.195373133, -0.978147566, 0.334545016, 0.919158578, -0.207911715),i)
-            game:GetService("RunService").RenderStepped:wait()
-        end
-        for i = 0,1 , 0.05 do
-            weld.C0 = weld.C0:lerp(CFrame.new(-0.342021942, -1.88848877, -0.088739872, 0.978147507, -0.0289359875, -0.205888897, 0.204753578, -0.0378959738, 0.978079677, -0.0361040607, -0.998862624, -0.0311431047),i)
-            rhandweld.C0 = rhandweld.C0:lerp(CFrame.new(0.917564392, 0.491810799, -0.168943405, 0.978147507, 0.204753578, -0.0361040607, 0.0289353225, -0.306021929, -0.951584637, -0.205889001, 0.929745436, -0.305259228),i)
-            lhandweld.C0 = lhandweld.C0:lerp(CFrame.new(-0.201648712, 0.903478384, -1.75520706, 0.939693093, -0.342019022, -2.66768012e-07, -0.0711100101, -0.195373133, -0.978147566, 0.334545016, 0.919158578, -0.207911715),i)
-            game:GetService("RunService").RenderStepped:wait()
-        end]]
-        for i = 0,0.7 , 0.5 do
-            weld.C0 = weld.C0:lerp(CFrame.new(-0.342021942, -1.88848877, -0.088739872, 0.978147507, -0.0289359875, -0.205888897, 0.204753578, -0.0378959738, 0.978079677, -0.0361040607, -0.998862624, -0.0311431047),i)
-            rhandweld.C0 = rhandweld.C0:lerp(CFrame.new(0.917564392, 0.399175882, -0.578536987, 0.978147507, 0.204753578, -0.0361040607, -0.0289359875, -0.0378959738, -0.998862624, -0.205888897, 0.978079677, -0.0311431047),i)
-            lhandweld.C0 = lhandweld.C0:lerp(CFrame.new(-0.472423553, 0.409558296, -1.4746933, 0.939692736, -0.342019886, -2.0985492e-06, 0.0238559935, 0.0655499771, -0.997564137, 0.341186911, 0.937403619, 0.0697560608),i)
-            game:GetService("RunService").RenderStepped:wait()
-        end
-        using = false
-                    wait(0.125)
-        debounce = false
-    end
+local Player = game.Players.LocalPlayer
+Player.Backpack:FindFirstChild("Client").Disabled = true
+local IS = game:GetService("UserInputService")
+local Camera = workspace.CurrentCamera
+local KT = Instance.new("Tool", Player.Backpack)
+KT.Name = "Knife"
+KT.RequiresHandle = false
+KT.CanBeDropped = false
+local GT = Instance.new("Tool", Player.Backpack)
+GT.Name = "Gun"
+GT.RequiresHandle = false
+GT.CanBeDropped = false
+local Spec = 0
+local WeaponType
+local Spectatable = {}
+local SpectatingPlayer
+local FPS = false
+local PlayerIgnore = workspace:WaitForChild("Ignore"):WaitForChild("Players")
+local runService = game:GetService("RunService")
+local RS = game:GetService("RunService").RenderStepped
+local Char = Player.Character
+local Rig = Instance.new("Model", Char)
+local Humanoid = Char:WaitForChild("Humanoid")
+local Primed = false
+if 0 >= Humanoid.Health then
+	return
 end
-mouse.Button1Down:connect(shoot)
---lotushomerun was here
---Do not leak
+local Mouse = Player:GetMouse()
+Mouse.TargetFilter = workspace.CurrentCamera
+local Disabled = false
+if Camera:findFirstChild("FpsModel") then
+	Camera:findFirstChild("FpsModel"):Destroy()
+end
+local LA, RA, Head, T = Char:WaitForChild("Left Arm"), Char:WaitForChild("Right Arm"), Char:WaitForChild("Head"), Char:WaitForChild("Torso")
+local FpsModel = Instance.new("Model", Camera)
+FpsModel.Name = "FpsModel"
+local FpsWeapon = Instance.new("Part")
+FpsWeapon.Parent = FpsModel
+FpsWeapon.CanCollide = false
+FpsWeapon.Transparency = 1
+FpsWeapon.Size = Vector3.new(1, 1, 1)
+FpsWeapon.Name = "WeaponFPS"
+local FpsLArm = Char:WaitForChild("Left Arm"):clone()
+FpsLArm.Parent = FpsModel
+FpsLArm.CanCollide = false
+FpsLArm.Transparency = 1
+local m = Instance.new("BlockMesh", FpsLArm)
+m.Scale = Vector3.new(1, 1, 1)
+local FpsRArm = Char:WaitForChild("Right Arm"):clone()
+FpsRArm.Parent = FpsModel
+FpsRArm.CanCollide = false
+FpsRArm.Transparency = 1
+local m = Instance.new("BlockMesh", FpsRArm)
+m.Scale = Vector3.new(1, 1.1, 1)
+spawn(function()
+	wait(0.5)
+	if Char:FindFirstChild("Body Colors") then
+		FpsLArm.BrickColor = Char:FindFirstChild("Body Colors").LeftArmColor
+		FpsRArm.BrickColor = Char:FindFirstChild("Body Colors").RightArmColor
+	end
+end)
+local Modules = game.ReplicatedStorage:WaitForChild("Modules")
+local M = require(Modules:WaitForChild("AnimationCore"))
+local WC = require(Modules:WaitForChild("WeaponCore"))
+local AniDB = false
+local Selected = false
+function AniEquipKnife()
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.45, 0.5, -0.25) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(25)), 0.1, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(-180), math.rad(0), math.rad(0)), 0.25, true)
+	wait(0.1)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-75), math.rad(-25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-55), math.rad(25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.25, true)
+end
+function AniChargeKnife()
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-180), math.rad(0), math.rad(0)), 1, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-90), math.rad(25), math.rad(0)), 1, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 1, true)
+end
+function AniChargeKnife2()
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-180), math.rad(0), math.rad(0)), 0.7, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-90), math.rad(25), math.rad(0)), 0.7, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.7, true)
+end
+function AniThrowKnife()
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-10), math.rad(-25), math.rad(0)), 0.1, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-35), math.rad(25), math.rad(0)), 0.1, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.1, true)
+	wait(0.1)
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(25), math.rad(-25), math.rad(0)), 0.2, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-35), math.rad(25), math.rad(0)), 0.2, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.2, true)
+end
+function AniSlashKnife1()
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-125), math.rad(-30), math.rad(0)), 0.15, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-65), math.rad(30), math.rad(0)), 0.15, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.15, true)
+	wait(0.15)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 1, -0.25) * CFrame.Angles(math.rad(-15), math.rad(-35), math.rad(0)), 0.05, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-35), math.rad(35), math.rad(0)), 0.05, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.05, true)
+	wait(0.05)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-75), math.rad(-25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-55), math.rad(25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.25, true)
+end
+function AniSlashKnife2()
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-175), math.rad(-10), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-65), math.rad(10), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(110), math.rad(180), math.rad(0)), 0.25, true)
+	wait(0.25)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 1, -0.25) * CFrame.Angles(math.rad(-35), math.rad(-35), math.rad(0)), 0.05, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 1, -0.25) * CFrame.Angles(math.rad(-35), math.rad(15), math.rad(0)), 0.05, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(110), math.rad(180), math.rad(0)), 0.05, true)
+	wait(0.05)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 1, -0.25) * CFrame.Angles(math.rad(-55), math.rad(-35), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-55), math.rad(25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(110), math.rad(180), math.rad(0)), 0.25, true)
+	wait(0.25)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-75), math.rad(-25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.25, true)
+end
+function AniSlashKnife3()
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.7) * CFrame.Angles(math.rad(45), math.rad(-30), math.rad(0)), 0.2, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-35), math.rad(10), math.rad(0)), 0.2, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.2, true)
+	wait(0.2)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 1, -0.25) * CFrame.Angles(math.rad(-60), math.rad(-35), math.rad(0)), 0.05, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-45), math.rad(35), math.rad(0)), 0.05, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1.5, 1) * CFrame.Angles(math.rad(130), math.rad(0), math.rad(0)), 0.05, true)
+	wait(0.05)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 1, -0.25) * CFrame.Angles(math.rad(-65), math.rad(-35), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-55), math.rad(25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1.5, 1) * CFrame.Angles(math.rad(130), math.rad(0), math.rad(0)), 0.25, true)
+	wait(0.25)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-75), math.rad(-25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.25, true)
+end
+function AniSlashKnife4()
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-125), math.rad(0), math.rad(0)), 0.15, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-65), math.rad(0), math.rad(0)), 0.15, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.15, true)
+	wait(0.15)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 1, -0.25) * CFrame.Angles(math.rad(-15), math.rad(-45), math.rad(0)), 0.05, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-35), math.rad(45), math.rad(0)), 0.05, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.05, true)
+	wait(0.05)
+	if WeaponType == "Gun" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-75), math.rad(-25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(-55), math.rad(25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0, -1, 1) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0)), 0.25, true)
+end
+function AniEquipGun()
+	if WeaponType == "Knife" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.45, 0.5, -0.25) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(25)), 0.1, true)
+	wait(0.1)
+	if WeaponType == "Knife" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.45, 0.5, -0.25) * CFrame.Angles(math.rad(-90), math.rad(-25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.9, 1, -0.25) * CFrame.Angles(math.rad(-90), math.rad(75), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0.5, -1.75, -0.35) * CFrame.Angles(math.rad(180), math.rad(0), math.rad(-25)), 0.25, true)
+end
+function AniShootGun()
+	if WeaponType == "Knife" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.45, 0.5, -0.25) * CFrame.Angles(math.rad(-120), math.rad(-25), math.rad(-8)), 0.06, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.9, 1, -0.25) * CFrame.Angles(math.rad(-110), math.rad(78), math.rad(5)), 0.06, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0.5, -1.75, -0.35) * CFrame.Angles(math.rad(180), math.rad(0), math.rad(-25)), 0.06, true)
+	wait(0.06)
+	if WeaponType == "Knife" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.45, 0.5, -0.25) * CFrame.Angles(math.rad(-90), math.rad(-25), math.rad(0)), 0.15, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.9, 1, -0.25) * CFrame.Angles(math.rad(-90), math.rad(75), math.rad(0)), 0.15, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0.5, -1.75, -0.35) * CFrame.Angles(math.rad(180), math.rad(0), math.rad(-25)), 0.15, true)
+	wait(0.15)
+	if WeaponType == "Knife" or not Selected then
+		return
+	end
+end
+function AniReloadGun()
+	if WeaponType == "Knife" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.5, 0.5, -0.25) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(-25)), 0.55, true)
+	wait(0.55)
+	if WeaponType == "Knife" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.45, 0.5, -0.25) * CFrame.Angles(math.rad(-90), math.rad(-25), math.rad(-15)), 0.4, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.7, 1.5, -0.5) * CFrame.Angles(math.rad(-100), math.rad(55), math.rad(-25)), 0.4, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0.5, -1.75, -0.35) * CFrame.Angles(math.rad(180), math.rad(0), math.rad(-25)), 0.4, true)
+	wait(0.4)
+	if WeaponType == "Knife" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.45, 0.5, -0.25) * CFrame.Angles(math.rad(-95), math.rad(-30), math.rad(20)), 0.35, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.7, 1.5, -0.5) * CFrame.Angles(math.rad(-100), math.rad(60), math.rad(-25)), 0.35, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0.5, -1.75, -0.35) * CFrame.Angles(math.rad(180), math.rad(25), math.rad(-25)), 0.35, true)
+	wait(0.35)
+	if WeaponType == "Knife" or not Selected then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.45, 0.5, -0.25) * CFrame.Angles(math.rad(-90), math.rad(-25), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.9, 1, -0.25) * CFrame.Angles(math.rad(-80), math.rad(75), math.rad(0)), 0.25, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0.5, -1.75, -0.35) * CFrame.Angles(math.rad(180), math.rad(0), math.rad(-25)), 0.25, true)
+	wait(0.25)
+	if WeaponType == "Knife" then
+		return
+	end
+	M.Animate(Char:findFirstChild("MotorRight Arm", true), CFrame.new(-0.45, 0.5, -0.25) * CFrame.Angles(math.rad(-90), math.rad(-25), math.rad(0)), 0.5, true)
+	M.Animate(Char:findFirstChild("MotorLeft Arm", true), CFrame.new(0.9, 1, -0.25) * CFrame.Angles(math.rad(-90), math.rad(75), math.rad(0)), 0.5, true)
+	M.Animate(Char:findFirstChild("MotorWeapon", true), CFrame.new(0.5, -1.75, -0.35) * CFrame.Angles(math.rad(180), math.rad(0), math.rad(-25)), 0.5, true)
+end
+local FpsPart = Instance.new("Part")
+FpsPart.Transparency = 1
+FpsPart.Anchored = true
+FpsPart.Parent = FpsModel
+FpsPart.CanCollide = false
+FpsPart.FormFactor = "Custom"
+FpsPart.Size = Vector3.new(0.2, 0.2, 0.2)
+local FpsWeaponWeld = Instance.new("Motor")
+FpsWeaponWeld.Parent = FpsPart
+FpsWeaponWeld.Part1 = FpsWeapon
+FpsWeaponWeld.Part0 = FpsRArm
+FpsWeaponWeld.C1 = CFrame.new(0, 2, 1)
+FpsWeaponWeld.C0 = CFrame.new()
+local FpsLArmWeld = Instance.new("Motor")
+FpsLArmWeld.Parent = FpsLArm
+FpsLArmWeld.Part1 = FpsLArm
+FpsLArmWeld.Part0 = FpsPart
+FpsLArmWeld.C1 = CFrame.new(0.5, 0, 0)
+FpsLArmWeld.C0 = CFrame.new(-1, 0.75, 0)
+local FpsRArmWeld = Instance.new("Motor")
+FpsRArmWeld.Parent = FpsRArm
+FpsRArmWeld.Part1 = FpsRArm
+FpsRArmWeld.Part0 = FpsPart
+FpsRArmWeld.C1 = CFrame.new(-0.5, 0, 0)
+FpsRArmWeld.C0 = CFrame.new(1, 0.75, 0)
+local energy = 100
+local maxEnergy = 100
+local move_anim_speed = 5
+local last_p = Vector3.new()
+local move_amm = 0
+local walking = false
+local running = false
+local walkingStop = true
+local aniRun = false
+local aniLegs = false
+local idle = true
+local WalkSpeed = Humanoid.WalkSpeed
+Humanoid.WalkSpeed = WalkSpeed
+local DB = false
+local Charging = false
+local Speed = 0.35
+local shake_freq = 5
+local CanMelee = true
+local CanReload = true
+local Shooting = false
+local Aimed = false
+local Zoomed = false
+local RunSpeed = 20
+Camera.CameraType = "Custom"
+Camera.CameraSubject = Humanoid
+coroutine.resume(coroutine.create(function()
+	while FpsModel ~= nil do
+		local delta = wait()
+		local cur_p = T.Position
+		if (cur_p - last_p).magnitude >= 0.1 then
+			move_amm = math.min(1, move_amm + delta * move_anim_speed)
+			walking = true
+			if running then
+				if energy <= 0 then
+					aniRun = false
+					running = false
+					shake_freq = 5
+					Humanoid.WalkSpeed = WalkSpeed
+				end
+			elseif energy < maxEnergy then
+				energy = energy + 0.2
+			end
+		else
+			move_amm = math.max(0, move_amm - delta * move_anim_speed)
+			walking = false
+			if energy < maxEnergy then
+				energy = energy + 0.2
+			end
+		end
+		last_p = cur_p
+	end
+end))
+local RightArmWeld, LeftArmWeld, WeaponWeld
+local Cloaked = false
+local UserInputService = game:GetService("UserInputService")
+local Mobile = UserInputService.TouchEnabled
+if UserInputService.KeyboardEnabled then
+	Mobile = false
+end
+runService.RenderStepped:connect(function()
+	local last_time = tick()
+	local delta = tick() - last_time
+	last_time = tick()
+	local breathe_amp = 1.5
+	local breathe_freq = 1
+	local breathe = math.sin(math.rad(tick() * 90 * breathe_freq)) * breathe_amp
+	local shake_amp = {0.075, 0.075}
+	local arm_shake = CFrame.new(math.cos(math.rad(tick() * 90 * shake_freq)) * move_amm * shake_amp[1], math.abs(math.cos(math.rad(tick() * 90 * shake_freq)) * move_amm * shake_amp[2]), 0)
+	if (Head.Position - Camera.CoordinateFrame.p).magnitude < 2.5 and Selected then
+		if Cloaked then
+			FpsLArm.Transparency = 0.5
+			FpsRArm.Transparency = 0.5
+			FpsWeapon.Transparency = 0.5
+		else
+			FpsLArm.Transparency = 0
+			FpsRArm.Transparency = 0
+			FpsWeapon.Transparency = 0
+		end
+		FPS = true
+	else
+		FpsLArm.Transparency = 1
+		FpsRArm.Transparency = 1
+		FpsWeapon.Transparency = 1
+		FPS = false
+	end
+	if FpsModel ~= nil and Char ~= nil and 0 < Humanoid.Health then
+		if WeaponType == "Gun" then
+			FpsPart.CFrame = Camera.CoordinateFrame * CFrame.new(0.7, -2, -0.4) * CFrame.Angles(math.rad(0 + breathe / 2), math.rad(0), math.rad(0)) * arm_shake
+		elseif WeaponType == "Knife" then
+			FpsPart.CFrame = Camera.CoordinateFrame * CFrame.new(0, -1.6, -0.4) * CFrame.Angles(math.rad(0 + breathe / 2), math.rad(0), math.rad(0)) * arm_shake
+		end
+		if RightArmWeld ~= nil and LeftArmWeld ~= nil and WeaponWeld ~= nil then
+			if WeaponType == "Gun" then
+				FpsLArmWeld.C1 = LeftArmWeld.C1 * CFrame.new(0.15, 0.09, -0.43) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(-5))
+				FpsRArmWeld.C1 = RightArmWeld.C1
+				FpsWeaponWeld.C1 = WeaponWeld.C1 * CFrame.new(0.1, -0.2, 0.25)
+			elseif WeaponType == "Knife" then
+				FpsLArmWeld.C1 = LeftArmWeld.C1 * CFrame.new(0.15, 0.09, -0.43)
+				FpsRArmWeld.C1 = RightArmWeld.C1 * CFrame.Angles(math.rad(0), math.rad(25), math.rad(0))
+				FpsWeaponWeld.C1 = WeaponWeld.C1 * CFrame.new(0, 0.15, 0.25)
+			end
+		end
+	end
+end)
+local debouncetime = 1
+local lastjump = time()
+local WeaponMesh
+local used = false
+local Perk = PERKY
+Humanoid.Changed:connect(function(prop)
+	if Perk == "Kevlar" and (Humanoid.Health == 98 or Humanoid.Health == 1398) and not used then
+		Player.PlayerGui.Sounds.KevlarHurt:Play()
+		used = true
+	end
+end)
+local GunSkin = "http://www.roblox.com/asset/?id=79401500"
+local KnifeSkin = "http://www.roblox.com/asset/?id=130252453"
+local Charged = false
+local MouseDown = false
+local DB2 = false
+local Ability = ABIL
+local Gamemode
+local CanCloak = true
+local Knife = false
+local Gun = false
+local ThrowGui = Player.PlayerGui.GUI.ThrowKnife
+local CloakGui = Player.PlayerGui.GUI.CloakGui
+local Crosshair = Player.PlayerGui.GUI.MobileCrosshair
+local Gui = Player.PlayerGui.GUI
+game.Players.LocalPlayer.Backpack.ChildAdded:connect(function(c)
+	if c.Name == "Gun" and not Gun then
+		spawn(function()
+			Gamemode = game.ReplicatedStorage.RemoteFunction:InvokeServer("Gamemode")
+			Perk = game.ReplicatedStorage.RemoteFunction:InvokeServer("Perk")
+		end)
+		local Skin = game.ReplicatedStorage.RemoteFunction:InvokeServer("Skin", "Gun")
+		if Skin ~= nil then
+			GunSkin = Skin
+		end
+		if game.Players.LocalPlayer.Backpack:findFirstChild("Gun") ~= nil then
+			Gun = true
+			if Mobile then
+			else
+				GT.Activated:connect(function()
+					if Gamemode == "One In The Chamber" and Char.Bullet.Value == false then
+						return
+					end
+					if not DB then
+						DB = true
+						WC.ShootGun(Char, Char, Mouse.Hit.p, FPS, FpsWeapon)
+						AniShootGun()
+						wait(0.21)
+						AniReloadGun()
+						if not Selected then
+							wait(1.55)
+						end
+						wait(0.5)
+						DB = false
+					end
+				end)
+			end
+			GT.Equipped:connect(function()
+				Selected = true
+				WeaponType = "Gun"
+				Mouse.Icon = "http://www.roblox.com/asset/?id=117431027"
+				WC.EquipGun(Char, Char, GunSkin)
+				RightArmWeld = Char:WaitForChild("MotorRight Arm")
+				LeftArmWeld = Char:WaitForChild("MotorLeft Arm")
+				WeaponWeld = Char:WaitForChild("MotorWeapon")
+				WeaponMesh = Char:WaitForChild("Weapon"):findFirstChild("Mesh"):clone()
+				WeaponMesh.Parent = FpsWeapon
+				AniEquipGun()
+			end)
+			GT.Unequipped:connect(function()
+				Selected = false
+				Mouse.Icon = "rbxasset://textures\\ArrowCursor.png"
+				if WeaponMesh ~= nil then
+					WeaponMesh:Destroy()
+				end
+				WeaponType = nil
+				WC.Unequip(Char, Char)
+			end)
+		end
+	elseif c.Name == "Knife" and not Knife then
+		spawn(function()
+			Ability = ABIL
+			Perk = PERKY
+			if Ability == nil then
+				Ability = ABIL
+			end
+			Gamemode = game.ReplicatedStorage.RemoteFunction:InvokeServer("Gamemode")
+		end)
+		local Skin = game.ReplicatedStorage.RemoteFunction:InvokeServer("Skin", "Knife")
+		if Skin ~= nil then
+			KnifeSkin = Skin
+		end
+		if game.Players.LocalPlayer.Backpack:findFirstChild("Knife") ~= nil then
+			Knife = true
+			KT.Activated:connect(function()
+				MouseDown = true
+				spawn(function()
+					if Cloaked then
+						WC.UnCloak(Char, Char)
+						Cloaked = false
+					end
+				end)
+				if Gamemode == "Infected" or Gamemode == "One In The Chamber" then
+					return
+				end
+				if not DB2 and not DB then
+					DB2 = true
+					spawn(function()
+						wait(0.35)
+						if MouseDown and not DB then
+							DB2 = true
+							if Perk ~= "Quick Hands" then
+								AniChargeKnife()
+								wait(1)
+							else
+								AniChargeKnife2()
+								wait(0.7)
+							end
+							if MouseDown and not DB then
+								Charged = true
+							end
+							wait(0.5)
+							DB2 = false
+						else
+							DB2 = false
+						end
+					end)
+				end
+			end)
+			KT.Deactivated:connect(function()
+				MouseDown = false
+				if Charged then
+					DB = true
+					DB2 = true
+					Charged = false
+					spawn(function()
+						WC.ThrowKnife(Char, Char, Mouse.Hit.p, Ability)
+					end)
+					AniThrowKnife()
+					wait(0.3)
+					AniEquipKnife()
+					DB = false
+					DB2 = false
+				elseif not DB then
+					DB = true
+					do
+						local Ran = math.random(1, 3)
+						spawn(function()
+							WC.StabKnife(Char, Char, Ran, Ability)
+						end)
+						if Ran == 1 then
+							AniSlashKnife1()
+						elseif Ran == 2 then
+							AniSlashKnife2()
+						elseif Ran == 3 then
+							AniSlashKnife3()
+						elseif Ran == 4 then
+							AniSlashKnife4()
+						end
+						wait(0.25)
+						DB = false
+					end
+				end
+			end)
+			KT.Equipped:connect(function()
+				Selected = true
+				WeaponType = "Knife"
+				Mouse.Icon = "http://www.roblox.com/asset/?id=117431027"
+				WC.EquipKnife(Char, Char, KnifeSkin)
+				RightArmWeld = Char:WaitForChild("MotorRight Arm")
+				LeftArmWeld = Char:WaitForChild("MotorLeft Arm")
+				WeaponWeld = Char:WaitForChild("MotorWeapon")
+				WeaponMesh = Char:WaitForChild("Weapon"):findFirstChild("Mesh"):clone()
+				WeaponMesh.Parent = FpsWeapon
+				AniEquipKnife()
+				if Char then
+					if workspace.GameInProgress.Mode.Value ~= "Infected" then
+						Char.Humanoid.WalkSpeed = 20
+						if workspace.GameInProgress.Mode.Value == "Cold Killer" then
+							Char.Humanoid.WalkSpeed = 20
+						elseif Perk == "Speedy Gonzales" then
+							Char.Humanoid.WalkSpeed = 25
+						else
+							Char.Humanoid.WalkSpeed = 20
+						end
+					else
+						Char.Humanoid.WalkSpeed = 13
+					end
+				end
+			end)
+			KT.Unequipped:connect(function()
+				if Mobile then
+					ThrowGui.Visible = false
+					if Perk == "Shadow Cloak" then
+						CloakGui.Visible = false
+					end
+				end
+				Charged = false
+				MouseDown = false
+				Selected = false
+				Mouse.Icon = "rbxasset://textures\\ArrowCursor.png"
+				if WeaponMesh ~= nil then
+					WeaponMesh:Destroy()
+				end
+				WeaponType = nil
+				WC.Unequip(Char, Char)
+				if workspace.GameInProgress.Mode.Value ~= "Infected" then
+					Char.Humanoid.WalkSpeed = 16
+				else
+					Char.Humanoid.WalkSpeed = 13
+				end
+				if Cloaked then
+					WC.UnCloak(Char, Char)
+					Cloaked = false
+				end
+			end)
+		end
+	end
+end)
+local DB3 = false
+IS.InputBegan:connect(function(input, chatting)
+	if input.UserInputType == Enum.UserInputType.Gamepad1 and input.UserInputState == Enum.UserInputState.Begin and not chatting and Selected and input.KeyCode == Enum.KeyCode.ButtonX and WeaponType == "Knife" and CanCloak and Perk == "Shadow Cloak" then
+		if Gamemode == "Infected" or Gamemode == "One In The Chamber" then
+			return
+		end
+		CanCloak = false
+		WC.Cloak(Char, Char)
+		Cloaked = true
+		wait(10)
+		if Cloaked then
+			WC.UnCloak(Char, Char)
+			Cloaked = false
+		end
+		wait(15)
+		CanCloak = true
+	end
+	if input.UserInputType == Enum.UserInputType.Keyboard and input.UserInputState == Enum.UserInputState.Begin and not chatting and Selected then
+		if input.KeyCode == Enum.KeyCode.E and WeaponType == "Knife" and not DB3 then
+			if Gamemode == "Infected" or Gamemode == "One In The Chamber" then
+				return
+			end
+			DB3 = true
+			spawn(function()
+				if Cloaked then
+					WC.UnCloak(Char, Char)
+					Cloaked = false
+				end
+			end)
+			if not DB2 and not DB then
+				DB2 = true
+				if not DB then
+					DB2 = true
+					DB = true
+					if Perk ~= "Quick Hands" then
+						AniChargeKnife()
+						wait(1)
+					else
+						AniChargeKnife2()
+						wait(0.7)
+					end
+					if not Selected or WeaponType ~= "Knife" then
+						DB2 = false
+						DB = false
+						return
+					end
+					spawn(function()
+						WC.ThrowKnife(Char, Char, Mouse.Hit.p, Ability)
+					end)
+					AniThrowKnife()
+					wait(0.3)
+					AniEquipKnife()
+					DB = false
+					DB2 = false
+				else
+					DB2 = false
+				end
+			end
+			wait(0.25)
+			DB3 = false
+		elseif input.KeyCode == Enum.KeyCode.Q and WeaponType == "Knife" and CanCloak and Perk == "Shadow Cloak" then
+			if Gamemode == "Infected" or Gamemode == "One In The Chamber" then
+				return
+			end
+			CanCloak = false
+			WC.Cloak(Char, Char)
+			Cloaked = true
+			wait(10)
+			if Cloaked then
+				WC.UnCloak(Char, Char)
+				Cloaked = false
+			end
+			wait(15)
+			CanCloak = true
+		end
+	end
+end)
+game.Players.ChildAdded:connect(function(c)
+	wait(3)
+	repeat
+		wait()
+	until not DB and not DB2 and not MouseDown
+	if WeaponType == "Gun" then
+		WC.EquipGun(Char, Char, GunSkin)
+		AniEquipGun()
+	elseif WeaponType == "Knife" then
+		WC.EquipKnife(Char, Char, KnifeSkin)
+		AniEquipKnife()
+	end
+end)
