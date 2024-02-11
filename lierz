@@ -7,7 +7,7 @@ local ABIL = "Illuminati Knife" -- THIS TOO (TO ANY ABILITY)
 --iF U GOT ANY PROBLEMS DM ME FAGGOT
  
 local Player = game.Players.LocalPlayer
-Player.Backpack:FindFirstChild("Client").Disabled = true
+Player.Backpack:FindFirstChild("Client")
 local IS = game:GetService("UserInputService")
 local Camera = workspace.CurrentCamera
 local KT = Instance.new("Tool", Player.Backpack)
@@ -35,7 +35,6 @@ if 0 >= Humanoid.Health then
 end
 local Mouse = Player:GetMouse()
 Mouse.TargetFilter = workspace.CurrentCamera
-local Disabled = false
 if Camera:findFirstChild("FpsModel") then
 	Camera:findFirstChild("FpsModel"):Destroy()
 end
