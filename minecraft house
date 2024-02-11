@@ -1,0 +1,14 @@
+   local function setup(room)
+        for _, v in pairs(room:GetDescendants()) do
+            if v.Name=="Table" then
+local FakeDoor_Hotel = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]:FindFirstChild("FakeDoor_Hotel", true)
+local newdoor = FakeDoor_Hotel.FakeDoor.CFrame
+local model = game:GetObjects("rbxassetid://11761432613")[1]
+model.Parent = workspace
+model:SetPrimaryPartCFrame(newdoor)
+FakeDoor_Hotel:Destroy()
+        end
+                        end
+                    end
+                            for _, room in pairs(workspace.CurrentRooms:GetChildren()) do setup(room) end 
+                            workspace.CurrentRooms.ChildAdded:Connect(setup)
