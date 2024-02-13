@@ -22,7 +22,7 @@ local entityTable = Spawner.createEntity({
         WaitTime = 9.9,
     },
     CamShake = {
-        true, -- Enabled/Disabled
+        false, -- Enabled/Disabled
         {3.5, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
         400, -- Shake start distance (from Entity to you)
     },
