@@ -1,6 +1,4 @@
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
-local gun = loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/gun%20script%20number%202')))()
-
 
 -- Create entity
 local entityTable = Spawner.createEntity({
