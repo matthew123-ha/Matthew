@@ -1,5 +1,4 @@
-local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source"))()
-local ui ={
+local Reyfield = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source"))()
 local Window = Rayfiedl:CreateWindow()
 Name = "MikeHa_k's exploits",
 LoadingTitle = "Rayfield is the goat"
@@ -14,5 +13,7 @@ KeySettings = {
     Subtitle = "Key System"
     Note = "Not putting anything in heree"
     Key = "ABCDEF"
-} Rayfield:LoadConfiguration()
-}
+} local tab = Window:CreateTab("Tab example")
+local Section = Tab:CreateSection("section example")
+
+Rayfield:LoadConfiguration()
