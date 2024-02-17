@@ -1,1 +1,125 @@
-local gui = Instance.new("ScreenGui"), gui.Name = "MyGUI", gui.Parent = game.Players.LocalPlayer.PlayerGui, local frame = Instance.new("Frame"), frame.Size = UDim2.new(0, 200, 0, 100), frame.Position = UDim2.new(0.5, -100, 0.5, -50), frame.BackgroundColor3 = Color3.new(0.5, 0.5, 0.5), frame.Parent = gui, local label = Instance.new("TextLabel"), label.Size = UDim2.new(1, 0, 0.5, 0), label.Position = UDim2.new(0, 0, 0, 0), label.Text = "Click the button!", label.Parent = frame, local button = Instance.new("TextButton"), button.Size = UDim2.new(1, 0, 0.5, 0), button.Position = UDim2.new(0, 0, 0.5, 0), button.Text = "Click Me!", button.Parent = frame, local function onClick(), label.Text = "Button clicked!", end, button.MouseButton1Click:Connect(onClick)
+-- Create a ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Name = "MyGUI"
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+-- Create a Frame
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 200, 0, 100)
+frame.Position = UDim2.new(0.5, -100, 0.5, -50)
+frame.BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)
+frame.Parent = gui
+
+-- Create a Label
+local label = Instance.new("TextLabel")
+label.Size = UDim2.new(1, 0, 0.5, 0)
+label.Position = UDim2.new(0, 0, 0, 0)
+label.Text = "Click the button!"
+label.Parent = frame
+
+-- Create a Button
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, 0, 0.5, 0)
+button.Position = UDim2.new(0, 0, 0.5, 0)
+button.Text = "Ambush but cant kill!"
+button.Parent = frame
+
+-- Function to handle button click
+local function onClick(
+loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20cant%20kill'))() --ambush but cant kill)
+    label.Text = "Button clicked!"
+end
+
+-- Create a Button
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, 0, 0.5, 0)
+button.Position = UDim2.new(0, 0, 0.5, 0)
+button.Text = "Ambush but cant kill with rush speed!"
+button.Parent = frame
+
+-- Function to handle button click
+local function onClick(
+loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20cant%20kill%20with%20regular%20rush%20speed'))() --ambush but cant kill with regular rush speed
+    label.Text = "Button clicked!"
+end
+
+-- Create a Button
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, 0, 0.5, 0)
+button.Position = UDim2.new(0, 0, 0.5, 0)
+button.Text = "rush"
+button.Parent = frame
+
+-- Function to handle button click
+local function onClick(
+loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/rush'))() --ambush but cant kill with regular rush speed
+    label.Text = "Button clicked!"
+end
+
+-- Create a Button
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, 0, 0.5, 0)
+button.Position = UDim2.new(0, 0, 0.5, 0)
+button.Text = "rick roll!"
+button.Parent = frame
+
+-- Function to handle button click
+local function onClick(
+loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/rick%20roll'))() --ambush but cant kill with regular rush speed
+    label.Text = "Button clicked!"
+end
+
+-- Create a Button
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, 0, 0.5, 0)
+button.Position = UDim2.new(0, 0, 0.5, 0)
+button.Text = "mad spawner"
+button.Parent = frame
+
+-- Function to handle button click
+local function onClick(
+loadstring(game:HttpGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/MadSpawner'))() --ambush but cant kill with regular rush speed
+    label.Text = "Button clicked!"
+end
+
+-- Create a Button
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, 0, 0.5, 0)
+button.Position = UDim2.new(0, 0, 0.5, 0)
+button.Text = "sanic"
+button.Parent = frame
+
+-- Function to handle button click
+local function onClick(
+loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/sanic'))() --ambush but cant kill with regular rush speed
+    label.Text = "Button clicked!"
+end
+
+-- Create a Button
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, 0, 0.5, 0)
+button.Position = UDim2.new(0, 0, 0.5, 0)
+button.Text = "garfield"
+button.Parent = frame
+
+-- Function to handle button click
+local function onClick(
+loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/garfield'))() --ambush but cant kill with regular rush speed
+    label.Text = "Button clicked!"
+end
+
+-- Create a Button
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, 0, 0.5, 0)
+button.Position = UDim2.new(0, 0, 0.5, 0)
+button.Text = "mr doge lol"
+button.Parent = frame
+
+-- Function to handle button click
+local function onClick(
+loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/mr%20doge%20lol'))() --ambush but cant kill with regular rush speed
+    label.Text = "Button clicked!"
+end
+
+-- Connect the button click event to the onClick function
+button.MouseButton1Click:Connect(onClick)
