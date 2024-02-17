@@ -1,0 +1,16 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source"))()
+local Window = Rayfiedl:CreateWindow()
+Name = "MikeHa_k's exploits",
+LoadingTitle = "Rayfield is the goat"
+LoadingSubtitle = "by MikeHa_k"
+ConfigurationSaving = {
+    Enabled = true
+    FileName = "Big hub"
+}
+KeySystem = false
+KeySettings = {
+    Title = "Sirius Hub"
+    Subtitle = "Key System"
+    Note = "Not putting anything in heree"
+    Key = "ABCDEF"
+} Rayfield:LoadConfiguration()
