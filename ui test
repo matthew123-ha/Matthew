@@ -1,36 +1,111 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-function Script()
-    local Window = Library.CreateLib("YTScript", "Synapse")
-    local Main = Window:NewTab("Main")
-    local MainSection = Main:NewSection("Main")
-    -- Script
-    MainSection:NewButton("Infinite Yield", "Give you infinite yield script.", function()
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-    end)
-    MainSection:NewButton("Ambush", "Give you ambush.", function()
-   loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20cant%20kill'))()
-    end)
-    MainSection:NewButton("Dasher", "Give you Dasher.", function()
-   loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/dasher%20but%20cant%20kill'))()
-    end)
-MainSection:NewButton("Rush", "Give you rush.", function()
-   loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/rush'))()
-    end)
-MainSection:NewButton("rick roll", "Give you rick roll.", function()
-  loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/rick%20roll'))() --rick roll but cant kill
-    end)
-MainSection:NewButton("mad guy", "Give you mad guy.", function()
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/LukeLor/LukeLor/main/MadSpawner')))()
-    end)
-MainSection:NewButton("mad guy", "Give you mad guy.", function()
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/sanic')))()
-    end)
-    -- Credits
-    local Credits = Window:NewTab("Credits")
-    local CreditsSection = Credits:NewSection("Credits")
-    CreditsSection:NewLabel("Created by Matthew")
-end
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-if game.PlaceId == 6516141723 then
-    Script()
-end
+local Window = Rayfield:CreateWindow({
+   Name = "Scripts",
+   LoadingTitle = "Doors",
+   LoadingSubtitle = "by Matthew",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Example Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Key | Youtube Hub",
+      Subtitle = "Key System",
+      Note = "Key In Discord Server",
+      FileName = "YoutubeHubKey1", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/AtgzSPWK"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("🏠 Home", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+Rayfield:Notify({
+   Title = "You executed the script",
+   Content = "Very cool gui",
+   Duration = 5,
+   Image = 13047715178,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Ambush",
+   Callback = function()
+       --Toggles the infinite jump between on or off on every script run
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20cant%20kill'))() --ambush but cant kill
+
+       local Button = MainTab:CreateButton({
+         Name = "Rush",
+         Callback = function()
+             --Toggles the infinite jump between on or off on every script run
+             loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/rush'))()
+
+             local Button = MainTab:CreateButton({
+               Name = "Rick roll",
+               Callback = function()
+                   --Toggles the infinite jump between on or off on every script run
+                   
+loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/rick%20roll'))() --rick roll but cant kill
+
+local Button = MainTab:CreateButton({
+   Name = "Sanic",
+   Callback = function()
+       --Toggles the infinite jump between on or off on every script run
+      loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/sanic')))()
+
+      local Button = MainTab:CreateButton({
+         Name = "Garfield",
+         Callback = function()
+             --Toggles the infinite jump between on or off on every script run
+             loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/garfield')))()
+
+             local Button = MainTab:CreateButton({
+               Name = "Mr doge lol",
+               Callback = function()
+                   --Toggles the infinite jump between on or off on every script run
+                   loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/mr%20doge%20lol')))()
+	
+	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="Notification"; Text="Ambush Spawned"; Duration=5;})
+
+local OtherSection = MainTab:CreateSection("Other")
+
+local Button = MainTab:CreateButton({
+   Name = "Infinite yield",
+   Callback = function()
+       --Toggles the infinite jump between on or off on every script run
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="Notification"; Text="IY Executed"; Duration=5;})
+
+   local Button = MainTab:CreateButton({
+      Name = "Doors hack script",
+      Callback = function()
+          --Toggles the infinite jump between on or off on every script run
+          loadstring(game:HttpGet(('https://pastebin.com/raw/R8QMbhzv')))()
+      --Notifies readiness
+      game.StarterGui:SetCore("SendNotification", {Title="Notification"; Text="IY Executed"; Duration=5;})
+
+      local Button = MainTab:CreateButton({
+         Name = "Doors OP GUI",
+         Callback = function()
+             --Toggles the infinite jump between on or off on every script run
+             loadstring(game:HttpGet(('https://pastebin.com/raw/S6WSKKbV')))()
+         --Notifies readiness
+         game.StarterGui:SetCore("SendNotification", {Title="Notification"; Text="IY Executed"; Duration=5;})
