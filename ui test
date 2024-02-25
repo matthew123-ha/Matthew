@@ -1,6 +1,6 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 function Script()
-    local Window = Library.CreateLib("YTScript", "Synapse")
+    local Window = Library.CreateLib("MikeHa_k's scripts", "Synapse")
     local Main = Window:NewTab("Main")
     local MainSection = Main:NewSection("Main")
     -- Script
@@ -25,12 +25,22 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 MainSection:NewButton("mad guy", "Give you mad guy.", function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/sanic')))()
     end)
+    -- Other scripts
+    local OtherScripts = Window:NewTab("Other scripts")
+    local CreditsSection = Credits:NewSection("Other scripts")
+    MainSection:NewButton("ambush but can kill with regular rush speed", "ambush but can kill with regular rush speed.", function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill%20with%20regular%20rush%20speed'))() --ambush but can kill with regular rush speed
+            end)
+            MainSection:NewButton("Ambush but with regular rush speed", "Ambush but with regular rush speed.", function()
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20cant%20kill%20with%20regular%20rush%20speed'))() --ambush but cant kill with regular rush speed
+                    end)
+                    MainSection:NewButton("Ambush but can kill", "Ambush but can kill.", function()
+                        loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill'))() --ambush but can kill
+                            end)
     -- Credits
     local Credits = Window:NewTab("Credits")
     local CreditsSection = Credits:NewSection("Credits")
     CreditsSection:NewLabel("Created by Matthew")
 end
 
-if game.PlaceId == 6516141723 then
     Script()
-end
