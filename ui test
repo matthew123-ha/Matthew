@@ -27,7 +27,7 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthe
     end)
     -- Other scripts
     local OtherScripts = Window:NewTab("Other scripts")
-    local CreditsSection = Credits:NewSection("Other scripts")
+    local OtherScripts2 = Credits:NewSection("Other scripts")
     MainSection:NewButton("ambush but can kill with regular rush speed", "ambush but can kill with regular rush speed.", function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill%20with%20regular%20rush%20speed'))() --ambush but can kill with regular rush speed
             end)
