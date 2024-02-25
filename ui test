@@ -27,14 +27,14 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthe
     end)
     -- Other scripts
     local OtherScripts = Window:NewTab("Other scripts")
-    local OtherScripts2 = Credits:NewSection("Other scripts")
-    OtherScripts2Section:NewButton("ambush but can kill with regular rush speed", "ambush but can kill with regular rush speed.", function()
+    local OtherScripts = Credits:NewSection("Other scripts")
+    OtherScriptsSection:NewButton("ambush but can kill with regular rush speed", "ambush but can kill with regular rush speed.", function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill%20with%20regular%20rush%20speed'))() --ambush but can kill with regular rush speed
             end)
-            OtherScripts2Section:NewButton("Ambush but with regular rush speed", "Ambush but with regular rush speed.", function()
+            OtherScriptsSection:NewButton("Ambush but with regular rush speed", "Ambush but with regular rush speed.", function()
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20cant%20kill%20with%20regular%20rush%20speed'))() --ambush but cant kill with regular rush speed
                     end)
-                    OtherScripts2Section:NewButton("Ambush but can kill", "Ambush but can kill.", function()
+                    OtherScriptsSection:NewButton("Ambush but can kill", "Ambush but can kill.", function()
                         loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill'))() --ambush but can kill
                             end)
     -- Credits
