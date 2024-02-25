@@ -25,6 +25,9 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 MainSection:NewButton("Sanic", "Give you Sanic.", function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/sanic')))()
     end)
+MainSection:NewButton("Gun", "Give you Gun.", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/sanic')))()
+    end)
     local MainSection = Main:NewSection("Otherscripts")
     MainSection:NewButton("ambush but can kill with regular rush speed", "ambush but can kill with regular rush speed.", function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill%20with%20regular%20rush%20speed'))() --ambush but can kill with regular rush speed
