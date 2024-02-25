@@ -25,16 +25,14 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 MainSection:NewButton("mad guy", "Give you mad guy.", function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/sanic')))()
     end)
-    -- Other scripts
-    local OtherScripts = Window:NewTab("Other scripts")
-    local OtherScripts = Credits:NewSection("Other scripts")
-    OtherScriptsSection:NewButton("ambush but can kill with regular rush speed", "ambush but can kill with regular rush speed.", function()
+    local MainSection = Main:NewSection("Otherscripts")
+    MainSection:NewButton("ambush but can kill with regular rush speed", "ambush but can kill with regular rush speed.", function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill%20with%20regular%20rush%20speed'))() --ambush but can kill with regular rush speed
             end)
-            OtherScriptsSection:NewButton("Ambush but with regular rush speed", "Ambush but with regular rush speed.", function()
+            MainSection:NewButton("Ambush but with regular rush speed", "Ambush but with regular rush speed.", function()
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20cant%20kill%20with%20regular%20rush%20speed'))() --ambush but cant kill with regular rush speed
                     end)
-                    OtherScriptsSection:NewButton("Ambush but can kill", "Ambush but can kill.", function()
+                    MainSection:NewButton("Ambush but can kill", "Ambush but can kill.", function()
                         loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill'))() --ambush but can kill
                             end)
     -- Credits
