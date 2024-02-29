@@ -38,7 +38,7 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthe
 MainSection:NewButton("Other scripts", "Give you Other scripts.", function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/MatthewUI2')))()
     end)
-local Main = Window:NewTab("Main")
+local Main = Window:NewTab("Credits")
 local MainSection = Main:NewSection("Can't spam entities using this, look at discord server to")
 local MainSection = Main:NewSection("find entitity spawner")
 local MainSection = Main:NewSection("Made by Matthew")
