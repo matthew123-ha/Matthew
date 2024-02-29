@@ -173,13 +173,13 @@ function Kavo.CreateLib(kavName, themeList)
         if themeList.SchemeColor == nil then
             themeList.SchemeColor = Color3.fromRGB(173, 216, 230)
         elseif themeList.Background == nil then
-            themeList.Background = Color3.fromRGB(25, 25, 112)
+            themeList.Background = Color3.fromRGB(0, 255, 255)
         elseif themeList.Header == nil then
-            themeList.Header = Color3.fromRGB(0, 0, 128)
+            themeList.Header = Color3.fromRGB(137, 207, 240)
         elseif themeList.TextColor == nil then
-            themeList.TextColor = Color3.fromRGB(255,255,255)
+            themeList.TextColor = Color3.fromRGB(20, 52, 164)
         elseif themeList.ElementColor == nil then
-            themeList.ElementColor = Color3.fromRGB(0, 0, 128)
+            themeList.ElementColor = Color3.fromRGB(0, 71, 171)
         end
     end
 
