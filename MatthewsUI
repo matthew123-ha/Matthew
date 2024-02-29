@@ -8,6 +8,9 @@ end
     MainSection:NewButton("Infinite Yield", "Give you infinite yield script.", function()
         loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
     end)
+    MainSection:NewButton("Doors gui script", "Give you Doors gui script.", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/centerepic/script-host/main/doors_gui.lua')))()
+    end)
     MainSection:NewButton("Ambush", "Give you ambush.", function()
    loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20cant%20kill'))()
     end)
@@ -32,22 +35,6 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthe
 MainSection:NewButton("Gun", "Give you Gun.", function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/gun%20script%20number%202')))()
     end)
-    MainSection:NewButton("ambush but can kill with regular rush speed", "ambush but can kill with regular rush speed.", function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill%20with%20regular%20rush%20speed'))() --ambush but can kill with regular rush speed
-            end)
-            MainSection:NewButton("Ambush but with regular rush speed", "Ambush but with regular rush speed.", function()
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20cant%20kill%20with%20regular%20rush%20speed'))() --ambush but cant kill with regular rush speed
-                    end)
-                    MainSection:NewButton("Ambush but can kill", "Ambush but can kill.", function()
-                        loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill'))() --ambush but can kill
-                            end)
- MainSection:NewButton("dasher but can kill", "dasher but can kill.", function()
-                        loadstring(game:HttpGet(('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher')))() --normal dasher
-                            end)
- MainSection:NewButton("dasher but can kill with regular rush speed", "dasher but can kill with regular rush speed.", function()
-                        loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/dasher%20but%20can%20kill%20with%20regular%20rush%20speed'))() --dasher but can kill with regular rush speed
-                            end)
- MainSection:NewButton("dasher but cant kill with regular rush speed", "dasher but cant kill with regular rush speed.", function()
-                        loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/dasher%20but%20cant%20kill%20with%20regular%20rush%20speed'))() --dasher but cant kill with regular rush speed
-                            end)
-                            Script()
+MainSection:NewButton("Other scripts", "Give you Other scripts.", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/MatthewUI2')))()
+    end)
