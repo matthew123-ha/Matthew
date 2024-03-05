@@ -42,6 +42,7 @@ MainSection:NewButton("Other scripts", "Give you Other scripts.", function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/MatthewUI2')))()
     end)
 local Main = Window:NewTab("Other scripts")
+local MainSection = Main:NewSection("Other Scripts")
 MainSection:NewButton("ambush but can kill with regular rush speed", "ambush but can kill with regular rush speed.", function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill%20with%20regular%20rush%20speed'))() --ambush but can kill with regular rush speed
             end)
