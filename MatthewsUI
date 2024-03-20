@@ -29,6 +29,9 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthe
 MainSection:NewButton("Gun", "Give you Gun.", function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/gun%20script%20number%202')))()
     end)
+MainSection:NewButton("Crucifix", "Give you Crucifix.", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/Crucifix')))()
+    end)
 local MainSection = Main:NewSection("Other entity Scripts")
 MainSection:NewButton("ambush but can kill with regular rush speed", "ambush but can kill with regular rush speed.", function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/matthew123-ha/Matthew/main/ambush%20but%20can%20kill%20with%20regular%20rush%20speed'))() --ambush but can kill with regular rush speed
