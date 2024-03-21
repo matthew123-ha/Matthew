@@ -1,3 +1,4 @@
+--protected by me lol :)
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function TtfiLeCsWLYnSzxuEybVbiZbWmIRFfglcIWeTMhvJctoaRzXPJgLMhwwQrryetuFXfXPLLUvMlAUAkJILkxDypGfpNZGLDkcTn(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
 
